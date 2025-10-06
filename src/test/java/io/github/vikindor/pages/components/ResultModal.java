@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byText;
 
 public class ResultModal extends Modal {
 
-    public static final String // Name of result table elements
+    public static final String
             tableTitle = "Thanks for submitting the form",
             tableRowName = "Student Name",
             tableRowEmail = "Student Email",
@@ -23,7 +23,6 @@ public class ResultModal extends Modal {
             tableRowStateAndCity = "State and City";
 
     private final SelenideElement title = $("#example-modal-sizes-title-lg");
-//    private final SelenideElement table = $(".modal-body .table-responsive table");
     private final SelenideElement formTable = $(".table-responsive");
 
     public ResultModal shouldHaveTitle(String expected) {

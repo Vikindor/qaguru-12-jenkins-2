@@ -2,8 +2,6 @@ package io.github.vikindor.utils;
 
 import net.datafaker.Faker;
 
-import static io.github.vikindor.utils.RandomUtilsExample.getRandomItemFromArray;
-
 public class RandomUtils {
 
     public static Faker faker = new Faker();
@@ -16,7 +14,7 @@ public class RandomUtils {
         return faker.name().lastName();
     }
 
-    public static String getRandomUserEmail(String firstName, String lastName) { // Personalised email
+    public static String getRandomUserEmail(String firstName, String lastName) {
         String domain = faker.internet().domainName();
 
         return (firstName + "." + lastName + "@" + domain).toLowerCase();
