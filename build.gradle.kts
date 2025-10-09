@@ -46,10 +46,8 @@ tasks.test {
             .entries
             .associate { (k, v) -> k.toString() to v }
     )
-    // Redirect SLF4J SimpleLogger output from stderr (default, shown in red in IntelliJ)
-    // to stdout so that log messages appear in the normal "gray" console color.
+
     jvmArgs("-Dorg.slf4j.simpleLogger.logFile=System.out")
-    // Disable Selenium Manager telemetry (statistics sent to plausible.io)
     environment("SE_AVOID_STATS", "true")
 }
 
@@ -78,4 +76,7 @@ tasks.register<Test>("practiceFormTest") {
         showCauses = true
         showStackTraces = true
     }
+
+    jvmArgs("-Dorg.slf4j.simpleLogger.logFile=System.out")
+    environment("SE_AVOID_STATS", "true")
 }
