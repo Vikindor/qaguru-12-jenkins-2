@@ -63,16 +63,16 @@ public class PracticeFormTests extends TestBase {
             resultModal.shouldAppear();
             resultModal
                     .shouldHaveTitle(tableTitle)
-                    .shouldHaveValue(tableRowName, fullName)
-                    .shouldHaveValue(tableRowEmail, email)
-                    .shouldHaveValue(tableRowGender, gender)
-                    .shouldHaveValue(tableRowMobile, mobile)
-                    .shouldHaveValue(tableRowDateOfBirth, birthday)
-                    .shouldHaveValue(tableRowSubjects, subject)
-                    .shouldHaveValue(tableRowHobby, hobby)
-                    .shouldHaveValue(tableRowPicture, picture)
-                    .shouldHaveValue(tableRowAddress, address)
-                    .shouldHaveValue(tableRowStateAndCity, state);
+                    .shouldHaveExact(tableRowName, fullName)
+                    .shouldHaveExact(tableRowEmail, email)
+                    .shouldHaveExact(tableRowGender, gender)
+                    .shouldHaveExact(tableRowMobile, mobile)
+                    .shouldHaveExact(tableRowDateOfBirth, birthday)
+                    .shouldHaveExact(tableRowSubjects, subject)
+                    .shouldHaveExact(tableRowHobby, hobby)
+                    .shouldHaveExact(tableRowPicture, picture)
+                    .shouldHaveExact(tableRowAddress, address)
+                    .shouldHaveExact(tableRowStateAndCity, state + " " + city);
         });
     }
 
@@ -99,9 +99,9 @@ public class PracticeFormTests extends TestBase {
             resultModal.shouldAppear();
             resultModal
                     .shouldHaveTitle(tableTitle)
-                    .shouldHaveValue(tableRowName, fullName)
-                    .shouldHaveValue(tableRowGender,gender)
-                    .shouldHaveValue(tableRowMobile,mobile);
+                    .shouldHaveExact(tableRowName, fullName)
+                    .shouldHaveExact(tableRowGender,gender)
+                    .shouldHaveExact(tableRowMobile,mobile);
         });
     }
 

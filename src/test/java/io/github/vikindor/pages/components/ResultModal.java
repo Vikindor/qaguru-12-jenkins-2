@@ -2,12 +2,11 @@ package io.github.vikindor.pages.components;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selectors.byText;
 
-public class ResultModal extends Modal {
+public class ResultModal {
 
     public static final String
             tableTitle = "Thanks for submitting the form",
@@ -22,8 +21,14 @@ public class ResultModal extends Modal {
             tableRowAddress = "Address",
             tableRowStateAndCity = "State and City";
 
+    private final SelenideElement modal = $(".modal-dialog");
     private final SelenideElement title = $("#example-modal-sizes-title-lg");
     private final SelenideElement formTable = $(".table-responsive");
+
+    public ResultModal shouldAppear() {
+        modal.should(appear);
+        return this;
+    }
 
     public ResultModal shouldHaveTitle(String expected) {
         title.shouldHave(exactText(expected));
@@ -35,11 +40,10 @@ public class ResultModal extends Modal {
         return this;
     }
 
-//    Previous version of checkTable method
-//    public ResultModal shouldHaveExact(String label, String expected) {
-//        SelenideElement row = table.$$("tbody tr").findBy(text(label));
-//        row.$$("td").get(0).shouldHave(exactText(label));
-//        row.$$("td").get(1).shouldHave(exactText(expected));
-////        return this;
-//    }
+    public ResultModal shouldHaveExact(String key, String expected) {
+        SelenideElement row = formTable.$$("tbody tr").findBy(text(key));
+        row.$$("td").get(0).shouldHave(exactText(key));
+        row.$$("td").get(1).shouldHave(exactText(expected));
+        return this;
+    }
 }
